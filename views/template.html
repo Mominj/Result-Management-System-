@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Hello world!</title>
+    <link rel="stylesheet" href="/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+  </head>
+  <body>
+     <h1 style="width: 100%; text-align: center;">HSC Result 2021</h1>
+     <table style="width: 100%;">
+      <tr>
+        <td style="border: 1px solid black;">Roll: </td>
+        <td style="border: 1px solid black;">{{studentdetails.roll_number}} </td>
+        <td style="border: 1px solid black;">Name: </td>
+        <td style="border: 1px solid black;">{{studentdetails.name}}</td>
+        
+      </tr>
+      <tr>
+        <td style="border: 1px solid black;">Group: </td>
+        <td style="border: 1px solid black;">{{studentdetails.group}} </td>
+        <td style="border: 1px solid black;">Exam: </td>
+        <td style="border: 1px solid black;">{{studentdetails.examtype}}</td>
+      </tr>
+      <tr>
+        <td style="border: 1px solid black;">Session: </td>
+        <td style="border: 1px solid black;">{{studentdetails.year}} </td>
+        <td style="border: 1px solid black;">Gpa: </td>
+        <td style="border: 1px solid black;">{{gpa}}</td>
+      </tr>
+     </table>
+     <h1 style="width: 100%; text-align: center;">Grad Sheet</h1>
+    <table style="width: 100%;">
+      <tr style="background-color: gray; color: white;">
+        <th>Subject</th>
+        <th>Mark</th>
+        <th>Grade</th>
+      </tr>
+     
+      {{#each allinfo as |result|}}
+      <tr>
+      {{#> childEntry}}
+      <td style="border: 1px solid black;">{{result.subject}}</td> 
+      <td style="border: 1px solid black;">{{result.mark}}</td> 
+      <td style="border: 1px solid black;">{{result.grade}}</td>
+      {{/childEntry}}
+      </tr>
+      {{/each}}
+      
+
+    </table>
+  
+  </body>
+</html>
